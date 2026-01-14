@@ -161,6 +161,10 @@ public protocol JTACMonthViewDelegate: AnyObject {
     
     /// Called in case of tvOS
     func indexPathForPreferredFocusedView(in: UICollectionView) -> IndexPath?
+    
+    
+    func sizeOfItem(indexPath: IndexPath, date: Date) -> CGSize
+
 }
 
 /// Default delegate functions
@@ -182,5 +186,7 @@ public extension JTACMonthViewDelegate {
     func sizeOfDecorationView(indexPath: IndexPath) -> CGRect { return .zero }
     func scrollDidEndDecelerating(for calendar: JTACMonthView) {}
     func indexPathForPreferredFocusedView(in: UICollectionView) -> IndexPath? { return nil }
+
+    func sizeOfItem(indexPath: IndexPath, date: Date) -> CGSize { return .zero }
 
 }

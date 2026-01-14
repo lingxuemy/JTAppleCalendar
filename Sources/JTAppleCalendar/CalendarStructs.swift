@@ -104,6 +104,8 @@ public struct ConfigurationParameters {
         } else {
             self.numberOfRows = 6
         }
+        
+        self.numberOfRows = numberOfRows
 
         if let nonNilHasStrictBoundaries = hasStrictBoundaries {
             self.hasStrictBoundaries = nonNilHasStrictBoundaries

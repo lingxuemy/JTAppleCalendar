@@ -440,9 +440,17 @@ class JTACMonthLayout: UICollectionViewLayout, JTACMonthLayoutProtocol {
         }
         let width = cellSize.width - ((sectionInset.left / 7) + (sectionInset.right / 7))
         var size: (width: CGFloat, height: CGFloat) = (width, cellSize.height)
-        if shouldUseUserItemSizeInsteadOfDefault {
+      
+        let height = delegate?.sizeOfItem(indexPath: IndexPath(item: item, section: section)).height ?? 0
+        
+        if shouldUseUserItemSizeInsteadOfDefault || height > 0 {
             if scrollDirection == .vertical {
                 size.height = cellSize.height
+               
+                if height > 0 {
+                    size.height = height
+                }
+
             } else {
                 size.width = cellSize.width
                 let headerHeight =  strictBoundaryRulesShouldApply ? cachedHeaderHeightForSection(section) : 0

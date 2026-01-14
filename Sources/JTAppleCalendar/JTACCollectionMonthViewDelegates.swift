@@ -144,6 +144,12 @@ extension JTACMonthView: UICollectionViewDelegate, UICollectionViewDataSource {
         return size
     }
     
+    func sizeOfItem(indexPath: IndexPath) -> CGSize {
+        let cellState = cellStateFromIndexPath(indexPath)
+        guard let size = calendarDelegate?.sizeOfItem(indexPath: indexPath, date: cellState.date) else { return .zero }
+        return size
+    }
+    
     func handleSelectionValueChanged(_ collectionView: UICollectionView, action: SelectionAction, indexPath: IndexPath, selectionType: SelectionType, shouldTriggerSelectionDelegate: Bool = true) {
         guard
             let delegate = calendarDelegate,
