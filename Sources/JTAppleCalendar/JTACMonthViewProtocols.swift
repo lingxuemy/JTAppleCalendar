@@ -163,7 +163,7 @@ public protocol JTACMonthViewDelegate: AnyObject {
     func indexPathForPreferredFocusedView(in: UICollectionView) -> IndexPath?
     
     
-    func sizeOfItem(indexPath: IndexPath, date: Date) -> CGSize
+    func sizeOfItem(indexPath: IndexPath, state: CellState) -> CGSize
 
 }
 
@@ -187,6 +187,6 @@ public extension JTACMonthViewDelegate {
     func scrollDidEndDecelerating(for calendar: JTACMonthView) {}
     func indexPathForPreferredFocusedView(in: UICollectionView) -> IndexPath? { return nil }
 
-    func sizeOfItem(indexPath: IndexPath, date: Date) -> CGSize { return .zero }
+    func sizeOfItem(indexPath: IndexPath, state: CellState) -> CGSize { return .zero }
 
 }
